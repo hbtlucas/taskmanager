@@ -36,7 +36,7 @@ if($executa){
     print "<th> TASK NAME </th>";
     print "<th> TASK DATE </th>";
     print "<th> ACTIONS </th>";
-
+    print "<th> </th>";
     print "</tr>";
     while ($row=mysqli_fetch_assoc($executa)){
         print "<tr>";
@@ -44,19 +44,47 @@ if($executa){
         print "<td>".$row['task_name']."</td>";
         print "<td>".$row['task_date']."</td>";
         print "<td>
-        <button class='btn btn-primary'>Edit</button>
-        <button class='btn btn-primary'>Details</button>
 
-        <button class='btn btn-danger'>
-        <i class='fas fa-trash'></i>
-        </button>
+        <form method='post'>
+          <input type='hidden' name='task_id' value='".$row['task_id']."'>
+
+          <button type='submit' id='btnedit' name='action' value='edit' class='btn btn-primary'>Edit</button>
+
+          <button type='submit' id='btndetail' name='action' value='detail' class='btn btn-primary'>Details</button>
+          <input type='hidden' name='actiondetail' value='detail'>
+
+          <button type='submit' id='btndelete' name='action' value='delete' class='btn btn-danger'>
+          <input type='hidden' name='actiondelete' value='delete'>
+
+          <i class='fas fa-trash'></i>
+          </button>
+        </form>
+
         </td>";
-        print "</tr>";
-    
+        print "</tr>"; 
     }
-}
+
+
+    if(isset($_POST['action'])){
+      $action = $_POST['action'];
+      $task_id = $_POST['task_id'];
+      
+      switch($action) {
+          case 'edit': 
+            echo 'edit';
+          break; 
+
+          case 'delete': 
+            echo 'delete';
+          break; 
+
+          case 'detail': 
+            echo 'detail';
+          break; 
+      }
+      }
+    }
 ?>
   </main>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
