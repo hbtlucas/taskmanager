@@ -4,6 +4,9 @@
   <title>Task Manager</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </head>
 <body>
@@ -55,6 +58,7 @@ if($executa){
         <form method='post'>
           <input type='hidden' name='task_id' value='".$row['task_id']."'>
           <input type='hidden' name='task_details' value='".$row['task_details']."'>
+          <input type='hidden' name='task_name' value='".$row['task_name']."'>
 
           <button type='submit' id='btnedit' name='action' value='edit' class='btn btn-primary'>Edit</button>
 
@@ -77,14 +81,15 @@ if($executa){
       $action = $_POST['action'];
       $task_id = $_POST['task_id'];
       $task_details = $_POST['task_details'];
+      $task_name = $_POST['task_name'];
       
       switch($action) {
-          case 'edit': 
-           // $sql = "UPDATE `taskmanager` SET `task_name`='[value-2]',`task_details`='[value-3]' WHERE task_id = '$task_id'";
-           header('Location: update_task.php');
-           die();
-            break; 
-
+        case 'edit':
+          include 'update_task.php';
+          
+      
+          break;
+      
           case 'delete': 
             $sql = "DELETE FROM taskmanager WHERE task_id = '$task_id'";
 
