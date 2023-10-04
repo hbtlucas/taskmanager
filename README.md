@@ -1,7 +1,7 @@
-TASKMANAGER
+# TASKMANAGER
 Ferramenta para gerenciar/administrar tarefas do dia a dia.
 
-A idéia é fazer um gerenciador de tarefas com as seguintes funções:
+# Funções:
 
 - retornar uma lista com todas as tarefas pendentes
 - criar/adicionar uma nova tarefa
@@ -9,7 +9,9 @@ A idéia é fazer um gerenciador de tarefas com as seguintes funções:
 - atualizar uma tarefa especifica
 - deletar uma tarefa especifica
 
-As tecnologias que estou usando são: PHP, Bootstrap, MYSQL, Xampp e Javascript.
+# Tecnologias usadas: 
+
+PHP, Bootstrap, MYSQL, Xampp e Javascript.
 
 Essa aplicação precisa ter dentro do banco de dados:
 
