@@ -1,5 +1,5 @@
 # TASKMANAGER
-Ferramenta para gerenciar/administrar tarefas do dia a dia.
+Ferramenta para administrar tarefas do dia a dia.
 
 # Funções:
 
